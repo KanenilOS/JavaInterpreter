@@ -47,7 +47,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "2.0\r\n";
+        String expected = getAssertValue("2.0\r\n");
         assertEquals(expected, actual);
     }
 
