@@ -65,7 +65,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "5.5\r\n";
+        String expected = getAssertValue("5.5\r\n");
         assertEquals(expected, actual);
     }
 
