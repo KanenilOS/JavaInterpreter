@@ -102,7 +102,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "True\r\n";
+        String expected = String.format("True%s", System.lineSeparator());
         assertEquals(expected, actual);
     }
 
