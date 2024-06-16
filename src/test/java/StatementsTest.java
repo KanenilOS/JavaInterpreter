@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -18,6 +20,10 @@ public class StatementsTest {
         System.setOut(new PrintStream(buffer));
     }
 
+    private String getAssertValue(String expected) {
+        return expected.replaceAll("\r\n", System.lineSeparator());
+    }
+
     @Test
     public void statements_BasicPrint() {
         //Arrange
@@ -29,7 +35,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "Hello world!\r\n";
+        String expected = getAssertValue("Hello world!\r\n");
         assertEquals(expected, actual);
     }
 
@@ -44,7 +50,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "10.0\r\n";
+        String expected = getAssertValue("10.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -74,7 +80,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "Test variable\r\n";
+        String expected = getAssertValue("Test variable\r\n");
         assertEquals(expected, actual);
     }
 
@@ -102,7 +108,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = String.format("True%s", System.lineSeparator());
+        String expected = getAssertValue("True\r\n");
         assertEquals(expected, actual);
     }
 
@@ -117,7 +123,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = String.format("True%s", System.lineSeparator());
+        String expected = getAssertValue("True\r\n");
         assertEquals(expected, actual);
     }
 
@@ -132,7 +138,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "True\r\n";
+        String expected = getAssertValue("True\r\n");
         assertEquals(expected, actual);
     }
 
@@ -147,7 +153,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "True\r\n";
+        String expected = getAssertValue("True\r\n");
         assertEquals(expected, actual);
     }
 
@@ -162,7 +168,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "True\r\n";
+        String expected = getAssertValue("True\r\n");
         assertEquals(expected, actual);
     }
 
@@ -177,7 +183,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "True\r\n";
+        String expected = getAssertValue("True\r\n");
         assertEquals(expected, actual);
     }
 
@@ -192,7 +198,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "False\r\n";
+        String expected = getAssertValue("False\r\n");
         assertEquals(expected, actual);
     }
 
@@ -221,7 +227,7 @@ public class StatementsTest {
                 A < B\r
                 A <= B\r
                 """;
-        assertEquals(expected, actual);
+        assertEquals(getAssertValue(expected), actual);
     }
 
     @Test
@@ -246,7 +252,7 @@ public class StatementsTest {
                 4.0\r
                 5.0\r
                 """;
-        assertEquals(expected, actual);
+        assertEquals(getAssertValue(expected), actual);
     }
 
     @Test
@@ -263,7 +269,7 @@ public class StatementsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "10.0 5.0 10.0 100.0\r\n";
+        String expected = getAssertValue("10.0 5.0 10.0 100.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -285,7 +291,7 @@ public class StatementsTest {
         String expected = """
                 Enter length Length 7.0\r
                 """;
-        assertEquals(expected, actual);
+        assertEquals(getAssertValue(expected), actual);
     }
 
     @Test
@@ -315,7 +321,7 @@ public class StatementsTest {
                 2.0 2.0 4.0\r
                 2.0 3.0 6.0\r
                 """;
-        assertEquals(expected, actual);
+        assertEquals(getAssertValue(expected), actual);
     }
 
     @Test
@@ -339,7 +345,7 @@ public class StatementsTest {
                 Start\r
                 This should print\r
                 """;
-        assertEquals(expected, actual);
+        assertEquals(getAssertValue(expected), actual);
     }
 
     @Test
@@ -365,7 +371,7 @@ public class StatementsTest {
                 This should print\r
                 This should print also\r
                 """;
-        assertEquals(expected, actual);
+        assertEquals(getAssertValue(expected), actual);
     }
 
     @Test
@@ -402,6 +408,6 @@ public class StatementsTest {
                 6.0\r
                 9.0\r
                 """;
-        assertEquals(expected, actual);
+        assertEquals(getAssertValue(expected), actual);
     }
 }
