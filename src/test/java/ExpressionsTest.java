@@ -17,6 +17,10 @@ public class ExpressionsTest {
         System.setOut(new PrintStream(buffer));
     }
 
+    private String getAssertValue(String expected) {
+        return expected.replaceAll("\r\n", System.lineSeparator());
+    }
+
     @Test
     public void expressions_AdditionTwoNumbersAtVariable() {
         //Arrange
@@ -28,7 +32,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "2.0\r\n";
+        String expected = getAssertValue("2.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -43,7 +47,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "2.0\r\n";
+        String expected = getAssertValue("2.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -58,7 +62,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "Hello world!\r\n";
+        String expected = getAssertValue("Hello world!\r\n");
         assertEquals(expected, actual);
     }
 
@@ -73,7 +77,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "Hello world!\r\n";
+        String expected = getAssertValue("Hello world!\r\n");
         assertEquals(expected, actual);
     }
 
@@ -88,7 +92,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "2.0\r\n";
+        String expected = getAssertValue("2.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -103,7 +107,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "3.0\r\n";
+        String expected = getAssertValue("3.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -118,7 +122,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "3.0\r\n";
+        String expected = getAssertValue("3.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -132,7 +136,7 @@ public class ExpressionsTest {
         interpreter.run();
 
         String actual = buffer.toString();
-        String expected = "Hello world!\r\n";
+        String expected = getAssertValue("Hello world!\r\n");
         assertEquals(expected, actual);
     }
 
@@ -147,7 +151,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "5.0\r\n";
+        String expected = getAssertValue("5.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -162,7 +166,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "4.5\r\n";
+        String expected = getAssertValue("4.5\r\n");
         assertEquals(expected, actual);
     }
 
@@ -190,7 +194,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "6.0\r\n";
+        String expected = getAssertValue("6.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -218,7 +222,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "5.0\r\n";
+        String expected = getAssertValue("5.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -258,7 +262,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "20.0\r\n";
+        String expected = getAssertValue("20.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -286,7 +290,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = "0.0\r\n";
+        String expected = getAssertValue("0.0\r\n");
         assertEquals(expected, actual);
     }
 
@@ -301,7 +305,7 @@ public class ExpressionsTest {
 
         //Assert
         String actual = buffer.toString();
-        String expected = String.format("1.0%s", System.lineSeparator());
+        String expected = getAssertValue("1.0\r\n");
         assertEquals(expected, actual);
     }
 }
